@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row">
+        <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+            <h1>Passengers List</h1>
+
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Trips</th>
+                    <th scope="col">Airline</th>
+                    <th scope="col">Airline Logo</th>
+                    <th scope="col">Country</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let i of productData.products">
+                    <td><img src="{{i.images}}" alt=""></td>
+                    <td>{{i.id}}</td>
+                    <td><img src="{{i.thumbnail}}" alt=""></td>
+                    <td>{{i.title}}</td>
+                    <td>{{i.price}}</td>
+                    <td>{{i.category}}</td>
+                  </tr>
+                </tbody>
+              </table>
+
+
+        </div>
+    </div>
+</div>
