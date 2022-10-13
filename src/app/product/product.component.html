@@ -1,30 +1,49 @@
 <div class="container">
-    <div class="row">
+    <div class="row my-3">
         <div class="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-            <h1>Passengers List</h1>
+            <h3>Product List</h3><br>
 
-            <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Trips</th>
-                    <th scope="col">Airline</th>
-                    <th scope="col">Airline Logo</th>
-                    <th scope="col">Country</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let i of productData.products">
-                    <td><img src="{{i.images[0]}}" alt="N/A"></td>
-                    <td>{{i.id}}</td>
-                    <td><img src="{{i.thumbnail}}" alt=""></td>
-                    <td>{{i.title}}</td>
-                    <td>{{i.price}}</td>
-                    <td>{{i.category}}</td>
-                  </tr>
-                </tbody>
-              </table>
+            <div class="row g-3">
+                <div *ngFor="let i of productData.products" class="col col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 col-xxl-3">
+                    <div class="card">
+                        <img src="{{i.thumbnail}}" class="img-thumbnail" alt="N/A">
+                        <div class="card-body">
+                          <h5 class="card-title">{{i.title}}</h5><span class="badge text-bg-success --bs-badge-font-size: 0.75em;" >{{i.rating}}⭐️</span>
+                          <h4 class="card-title">${{i.price}} <sup style="color: green;">{{i.discountPercentage}}% off</sup></h4>
+                          <p class="card-text" style="color: red;">{{i.stock}} items left</p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="{{i.id}}">
+                            View
+                            </button>&nbsp;
+                            <!-- Modal -->
+                            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header" >
+                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">{{i.title}} ({{i.category}})</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                    <img src="{{i.thumbnail}}" alt="">
+                                    </div>
+                                    <div class="modal-footer">
+                                    <button type="button" class="btn btn-warning">Add to Cart</button>
+                                    <button type="button" class="btn btn-success">But Now</button>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <!-- Modal end here-->
+                          <a href="#" class="btn btn-success">Buy</a>&nbsp;
+                          <a href="#" class="btn btn-warning">Cart</a>
+                            
+                            
+                            
+                        </div>
+                      </div>
+
+
+                </div>
+            </div>   
 
 
         </div>
