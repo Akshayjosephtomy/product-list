@@ -13,7 +13,8 @@
                           <p class="card-text" style="color: red;">{{i.stock}} items left</p>
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="{{i.id}}">
                             View
-                            </button>&nbsp;
+                            </button>&nbsp;   
+
                             <!-- Modal -->
                             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
@@ -23,7 +24,31 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                    <img src="{{i.thumbnail}}" alt="">
+                                    <img src="{{i.thumbnail}}" alt="" class="img-thumbnail">
+                                    <h5 class="card-title">{{i.title}}</h5><span class="badge text-bg-success --bs-badge-font-size: 0.75em;" >{{i.rating}}⭐️</span>
+                                    <h4 class="card-title">${{i.price}} <sup style="color: green;">{{i.discountPercentage}}% off</sup></h4>
+                                    <p class="card-text" style="color: red;">{{i.stock}} items left</p>
+                                    <p class="card-text">{{i.description}}</p>
+                                    <h6>Category : {{i.category}}</h6>
+                                    <h6>Brand : {{i.brand}}</h6>
+                                    <h6>Product ID : {{i.id}}</h6>
+                                    <h6><u> Images</u></h6>
+                                    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                                        
+                                        <div class="carousel-inner" data-interval="1000">
+                                          <div class="carousel-item active" *ngFor="let j of i.images">
+                                            <img height="300px" src="{{j}}" class="d-block w-100" alt="...">
+                                          </div>
+                                        </div>
+                                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Previous</span>
+                                          </button>
+                                          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Next</span>
+                                          </button>
+                                      </div>
                                     </div>
                                     <div class="modal-footer">
                                     <button type="button" class="btn btn-warning">Add to Cart</button>
@@ -33,6 +58,7 @@
                                 </div>
                             </div>
                             <!-- Modal end here-->
+
                           <a href="#" class="btn btn-success">Buy</a>&nbsp;
                           <a href="#" class="btn btn-warning">Cart</a>
                             
